@@ -16,18 +16,18 @@ namespace MusicCollection_Api.Controllers
             _context = context;
         }
 
-        // Отримати всі альбоми
+        // всі альбоми
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Album>>> GetAll()
         {
             var albums = await _context.Albums
-                .Include(a => a.Artist)  // Завантаження артиста для кожного альбому
-                .Include(a => a.Tracks)  // Завантаження треків для кожного альбому
+                .Include(a => a.Artist)  // Завантаження артиста 
+                .Include(a => a.Tracks)  // Завантаження треків 
                 .ToListAsync();
             return Ok(albums);
         }
 
-        // Отримати альбом за ID
+        // альбом за ID
         [HttpGet("{id}")]
         public async Task<ActionResult<Album>> GetById(int id)
         {
@@ -42,7 +42,7 @@ namespace MusicCollection_Api.Controllers
             return Ok(album);
         }
 
-        // Створити новий альбом
+        // новий альбом
         [HttpPost]
         public async Task<ActionResult<Album>> Create([FromBody] Album album)
         {
