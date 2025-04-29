@@ -40,7 +40,7 @@ namespace MusicCollection_Api.Controllers
             return Ok(userAlbum);
         }
 
-        [HttpPost]
+        
         [HttpPost]
         public async Task<ActionResult<UserAlbum>> Create([FromBody] UserAlbum userAlbum)
         {
